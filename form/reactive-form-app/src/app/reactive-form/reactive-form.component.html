@@ -1,0 +1,44 @@
+<h1 class="text-danger">Reactive form</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+          
+            <h2 class="text-primary">User registration form : </h2>
+          
+            <!-- Store data in form of object using tamplate reference variable (#tdForm)  -->
+            <form action="" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name : </label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter your name" formControlName="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="age" class="form-label">Age : </label>
+                    <input type="number" name="age" class="form-control" placeholder="Enter your age" formControlName="age">
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email : </label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email" formControlName="email">
+                </div>
+
+                <br>
+
+                <input type="submit" value="Submit" class="btn btn-primary w-100">
+          </form>
+
+        </div>
+
+        <!-- Display user data based on condition using ng-template (if userData is set then display otherwise not) -->
+		<ng-template [ngIf]="userData">
+			<div class="userData mt-5">
+				<h2 class="text-success">User registration details : </h2>
+				<p> Name : {{ userData.name }}</p>
+				<p> Age : {{ userData.age }}</p>
+				<p> Email : {{ userData.email }}</p>
+			</div>
+		</ng-template>
+
+    </div>
+</div>

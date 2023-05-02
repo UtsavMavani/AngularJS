@@ -1,0 +1,14 @@
+<h2>Parent component</h2>
+
+
+<!-- Sends data parent to child (String, array and object) -->
+<app-child [message]="messageToChild" [users]="users" [user]="user" *ngIf="isShow">
+  <p content1>Projected content 1 for child using attribute ([content1])</p>
+  <p class="content2">Projected content 2 for child using class (.content2)</p>
+</app-child>
+
+<button (click)="displayChild()">Toggle child</button>
+
+<!-- Receives data from child -->
+<app-child2 (childEvent)="messageFromChild = $event"></app-child2>
+<p>Message : {{ messageFromChild }}</p>

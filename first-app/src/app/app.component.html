@@ -1,0 +1,87 @@
+<h1>---------- Text interpolation ----------</h1>
+<p>Welcome, Angular {{title}}</p>
+<p>{{showHello()}}</p>
+<button type="button" (click)="sayHello()">Click</button>
+
+<h1>---------- Component ----------</h1>
+<app-login></app-login>
+<app-register></app-register>
+
+
+<h1>---------- Built-in pipes ----------</h1>
+<p>{{ "utsav" | uppercase }}</p>
+<p>{{ "UTSAV" | lowercase }}</p>
+<p>{{ "utsav" | titlecase }}</p>
+<p>{{ "02-12-2003" | date }}</p>
+<p>{{ user | json }}</p>
+<p>{{ 1000 | currency: "INR" }}</p>
+
+
+<h1>---------- Custom pipe ----------</h1>
+<p>USD to INR (10 USD * 82 Price) : {{ 10 | USDINR: 82}}</p>
+
+
+<h1>---------- Built-in directives ----------</h1>
+<h2>*ngIf</h2>
+<p *ngIf="show; then ifBlock else elseBlock"></p>
+<ng-template #ifBlock>
+  <p>True</p>
+</ng-template>
+<ng-template #elseBlock>
+  <p>False</p>
+</ng-template>
+
+
+<h2>*ngFor</h2>
+<p *ngFor="let customer of customers; let i=index;">{{i + 1}} - {{ customer }}</p>
+
+
+<h2>*ngSwitch</h2>
+<div [ngSwitch]="color">
+  <p *ngSwitchCase="'red'">Red</p>
+  <p *ngSwitchCase="'green'">Green</p>
+  <p *ngSwitchCase="'blue'">Blue</p>
+  <p *ngSwitchDefault>No color</p>
+</div>
+
+
+<h2>*ngModel</h2>
+<label for="name">Name : </label>
+<input type="text" [(ngModel)]="name" placeholder="Enter your name"> 
+<p>Your name is : {{ name }}</p>
+
+
+<h1>---------- Custom directive ----------</h1> 
+<p appTest>Custom directive Example</p>
+
+
+<h1>---------- Dependency injection using service ----------</h1>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let stud of students">
+  <td>{{stud.id}}</td>
+  <td>{{stud.name}}</td>
+  <td>{{stud.email}}</td>
+</tr>
+</table>
+
+
+<h1>---------- Component lifecycle hooks & Add dynamic content in child (ng-content) ----------</h1>
+<app-parent></app-parent>
+
+
+<h1>---------- @ViewChild decorator ----------</h1>
+<label for="dob">Date Of Birth : </label>
+<input type="date" #dobInput> 
+<p>Your age is : {{ age }}</p>
+<button (click)="calculateAge()">Calculate age</button>
+
+<!-- Access the title property of register component -->
+<p>{{ registerComp.title }}</p>
+
+
+<h1>----------  ----------</h1>
